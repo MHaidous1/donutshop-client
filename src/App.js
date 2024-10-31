@@ -1,31 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
-import Donut from "./Donut";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Home'; 
+import Admin from './Admin';
 
 function App() {
-
-  const [donuts, setDonuts] = useState([]);
-
-  //This use effect will fetch the donuts from the backend
-  useEffect(() => {
-
-    fetch("http://localhost:8080/projects/donut-shop/server/getDonuts.php")
-      .then(response => response.json())
-      .then(data => setDonuts(data))
-      .catch(error => console.error('Error fetching donuts: ', error));
-  }, []);
-
   return (
-    <div className="App">
-
-      <h1>Donut Selection</h1>
-      <div className='donut-list'>
-        {donuts.map(donut => (
-          <Donut key={donut.ID} name={donut.Name} description={donut.Description} price={donut.Price} />
-        ))}
-      </div>
-
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </Router>
   );
 }
 
