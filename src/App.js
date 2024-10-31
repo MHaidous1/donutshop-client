@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import Donut from "./Donut";
 
 function App() {
+
+  const [donuts, setDonuts] = useState([]);
+
+  //This use effect will fetch the donuts from the backend
+  useEffect(() => {
+
+    fetch("http://localhost:8080/projects/donut-shop/server/getDonuts.php")
+      .then(response => response.json())
+      .then(data => setDonuts(data))
+      .catch(error => console.error('Error fetching donuts: ', error));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <h1>Donut Selection</h1>
+      <div className='donut-list'>
+        {donuts.map(donut => (
+          <Donut key={donut.ID} name={donut.Name} description={donut.Description} price={donut.Price} />
+        ))}
+      </div>
+
     </div>
   );
 }
