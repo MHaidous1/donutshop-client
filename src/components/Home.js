@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import '../App.css';
 import Donut from "./Donut";
 
 function Home() {
@@ -25,6 +25,10 @@ function Home() {
           <Donut key={donut.ID} name={donut.Name} description={donut.Description} price={donut.Price} />
         ))}
       </div>
+
+        <footer>
+          <p className='copyright'>© Copyright 2024 Dom's Donuts LLC</p>
+        </footer>
 
     </div>
   );
