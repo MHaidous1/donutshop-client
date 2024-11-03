@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import '../App.css';
 import Donut from "./Donut";
+import Styles from './Home.module.css';
 
 function Home() {
 
@@ -17,19 +18,25 @@ function Home() {
   }, []);
 
   return (
-    <div className="Home">
+    <div className={Styles.Home}>
 
+      <br />
       <h1>Donut Selection</h1>
-      <div className='donut-list'>
-        {donuts.map(donut => (
-          <Donut key={donut.ID} name={donut.Name} description={donut.Description} price={donut.Price} />
-        ))}
-      </div>
+      <br />
+        <div className={Styles.donutList}>
+          {donuts.map(donut => (
+            <Donut 
+              key={donut.ID} 
+              name={donut.Name} 
+              description={donut.Description} 
+              price={donut.Price} 
+            />
+          ))}
+        </div>
 
-        <footer>
-          <p className='copyright'>© Copyright 2024 Dom's Donuts LLC</p>
-        </footer>
-
+      <footer>
+        <p>© Copyright 2024 Dom's Donuts LLC</p>
+      </footer>
     </div>
   );
 }

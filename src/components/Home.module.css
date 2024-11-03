@@ -1,0 +1,64 @@
+/* Home.module.css */
+
+.Home {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-image: url(https://img.freepik.com/free-vector/doughnuts-patterned-beige-background-vector_53876-140753.jpg?t=st=1730604698~exp=1730608298~hmac=182951dec2349c1d0f47b2052ab87cac9b7b0e96faf5c5dccc1e5a7656e82812&w=826);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+  
+h1 {
+    color: #343a40;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+  
+.donutList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+  
+.donutItem {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s ease;
+}
+  
+.donutItem:hover {
+    transform: scale(1.05);
+}
+  
+.donutName {
+    font-size: 1.25rem;
+    color: #495057;
+    margin-bottom: 10px;
+}
+  
+.donutDescription {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+  
+.donutPrice {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+  
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #adb5bd;
+}
+  
