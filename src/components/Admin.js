@@ -36,11 +36,8 @@ function Admin (){
     const addDonut = async (e) => {
 
         e.preventDefault();
-
         try{
-
             await fetch(addUrl,{
-                
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newDonut),
@@ -108,7 +105,7 @@ function Admin (){
             <h1 className={styles.heading}>Donut Master</h1>
 
             {/* Add Donut Form */}
-            <form  className={styles.form} onSubmit={addDonut}>
+            <form className={styles.form} onSubmit={addDonut}>
                 <h2>Add New Donut</h2>
                 <input
                     className={styles.input}
@@ -140,45 +137,45 @@ function Admin (){
                 {donuts.map((donut) => (
                     <li className={styles.listItem} key={donut.ID}>
                         <strong>{donut.Name}</strong>
-                        <p className={styles.description}>{donut.Description} (${donut.Price})</p> {/* Added paragraph for description */}
+                        <p className={styles.description}>{donut.Description} (${donut.Price})</p>
                         <div>
                             <button className={styles.button} onClick={() => handleEditDonut(donut)}>Edit</button>
                             <button className={styles.button} onClick={() => deleteDonut(donut.ID)}>Delete</button>
                         </div>
+                        <br />
+
+                        {/* Conditionally Render Edit Form Under the Current Donut */}
+                        {editDonut && editDonut.ID === donut.ID && (
+                            <form className={styles.form} onSubmit={updateDonut}>
+                                <h2>Edit Donut</h2>
+                                <input
+                                    className={styles.input}
+                                    type="text"
+                                    placeholder="Name"
+                                    value={editDonut.name}
+                                    onChange={(e) => setEditDonut({ ...editDonut, name: e.target.value })}
+                                />
+                                <input
+                                    className={styles.input}
+                                    type="text"
+                                    placeholder="Description"
+                                    value={editDonut.description}
+                                    onChange={(e) => setEditDonut({ ...editDonut, description: e.target.value })}
+                                />
+                                <input
+                                    className={styles.input}
+                                    type="text"
+                                    placeholder="Price"
+                                    value={editDonut.price}
+                                    onChange={(e) => setEditDonut({ ...editDonut, price: e.target.value })}
+                                />
+                                <button className={styles.button} type="submit">Update Donut</button>
+                                <button className={styles.button} type="button" onClick={() => setEditDonut(null)}>Cancel</button>
+                            </form>
+                        )}
                     </li>
                 ))}
             </ul>
-
-
-            {/* Edit Donut Form */}
-            {editDonut && (
-                <form className={styles.form} onSubmit={updateDonut}>
-                    <h2>Edit Donut</h2>
-                    <input
-                        className={styles.input}
-                        type="text"
-                        placeholder="Name"
-                        value={editDonut.name}
-                        onChange={(e) => setEditDonut({ ...editDonut, name: e.target.value })}
-                    />
-                    <input
-                        className={styles.input}
-                        type="text"
-                        placeholder="Description"
-                        value={editDonut.description}
-                        onChange={(e) => setEditDonut({ ...editDonut, description: e.target.value })}
-                    />
-                    <input
-                        className={styles.input}
-                        type="text"
-                        placeholder="Price"
-                        value={editDonut.price}
-                        onChange={(e) => setEditDonut({ ...editDonut, price: e.target.value })}
-                    />
-                    <button className={styles.button} type="submit">Update Donut</button>
-                    <button className={styles.button} type="button" onClick={() => setEditDonut(null)}>Cancel</button>
-                </form>
-            )}
         </div>
     );
 }
