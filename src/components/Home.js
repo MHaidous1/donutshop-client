@@ -21,7 +21,7 @@ function Home() {
     <div className={Styles.Home}>
 
       <br />
-      <h1>Donut Selection</h1>
+      <h1>Dom's Donuts</h1>
       <br />
         <div className={Styles.donutList}>
           {donuts.map(donut => (
