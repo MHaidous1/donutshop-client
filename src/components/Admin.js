@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import styles from './Admin.module.css';
 
 function Admin (){
 
@@ -103,69 +104,79 @@ function Admin (){
     
       
     return (
-        <div>
-            <h1>Admin - Manage Donuts</h1>
+        <div className={styles.container}>
+            <h1 className={styles.heading}>Donut Master</h1>
 
             {/* Add Donut Form */}
-            <form onSubmit={addDonut}>
+            <form  className={styles.form} onSubmit={addDonut}>
                 <h2>Add New Donut</h2>
                 <input
+                    className={styles.input}
                     type="text"
                     placeholder="Name"
                     value={newDonut.name}
                     onChange={(e) => setNewDonut({ ...newDonut, name: e.target.value })}
                 />
                 <input
+                    className={styles.input}
                     type="text"
                     placeholder="Description"
                     value={newDonut.description}
                     onChange={(e) => setNewDonut({ ...newDonut, description: e.target.value })}
                 />
                 <input
+                    className={styles.input}
                     type="text"
                     placeholder="Price"
                     value={newDonut.price}
                     onChange={(e) => setNewDonut({ ...newDonut, price: e.target.value })}
                 />
-                <button type="submit">Add Donut</button>
+                <button className={styles.button} type="submit">Add Donut</button>
             </form>
 
             {/* Display Existing Donuts */}
             <h2>Existing Donuts</h2>
-            <ul>
+            <ul className={styles.list}>
                 {donuts.map((donut) => (
-                    <li key={donut.ID}>
-                        <strong>{donut.Name}</strong> - {donut.Description} (${donut.Price})
-                        <button onClick={() => handleEditDonut(donut)}>Edit</button>
-                        <button onClick={() => deleteDonut(donut.ID)}>Delete</button>
+                    <li className={styles.listItem} key={donut.ID}>
+                        <strong>{donut.Name}</strong>
+                        <p className={styles.description}>{donut.Description} (${donut.Price})</p> {/* Added paragraph for description */}
+                        <div>
+                            <button className={styles.button} onClick={() => handleEditDonut(donut)}>Edit</button>
+                            <button className={styles.button} onClick={() => deleteDonut(donut.ID)}>Delete</button>
+                        </div>
                     </li>
                 ))}
             </ul>
 
+
             {/* Edit Donut Form */}
             {editDonut && (
-                <form onSubmit={updateDonut}>
+                <form className={styles.form} onSubmit={updateDonut}>
                     <h2>Edit Donut</h2>
                     <input
+                        className={styles.input}
                         type="text"
                         placeholder="Name"
                         value={editDonut.name}
                         onChange={(e) => setEditDonut({ ...editDonut, name: e.target.value })}
                     />
                     <input
+                        className={styles.input}
                         type="text"
                         placeholder="Description"
                         value={editDonut.description}
                         onChange={(e) => setEditDonut({ ...editDonut, description: e.target.value })}
                     />
                     <input
+                        className={styles.input}
                         type="text"
                         placeholder="Price"
                         value={editDonut.price}
                         onChange={(e) => setEditDonut({ ...editDonut, price: e.target.value })}
                     />
-                    <button type="submit">Update Donut</button>
-                    <button type="button" onClick={() => setEditDonut(null)}>Cancel</button>
+                    <button className={styles.button} type="submit">Update Donut</button>
+                    <button className={styles.button} type="button" onClick={() => setEditDonut(null)}>Cancel</button>
                 </form>
             )}
         </div>

@@ -10,55 +10,58 @@
     background-repeat: no-repeat;
     min-height: 100vh;
 }
-  
+
 h1 {
-    color: #343a40;
-    font-size: 36px;
+    color: #d97a3a; /* Warm orange */
+    font-size: 2.5rem;
     margin-bottom: 30px;
 }
-  
+
 .donutList {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
-  
+
 .donutItem {
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
+    border: 2px solid #bbdefb; /* Light blue border */
+    border-radius: 10px;
     padding: 15px;
-    width: 200px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: transform 0.2s ease;
+    width: 220px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #fffbf2; /* Light cream */
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
-  
+
 .donutItem:hover {
     transform: scale(1.05);
+    background-color: #ffecd8; /* Light peach on hover */
 }
-  
+
 .donutName {
-    font-size: 1.25rem;
-    color: #495057;
-    margin-bottom: 10px;
-}
-  
-.donutDescription {
-    font-size: 0.9rem;
-    color: #6c757d;
-    margin-bottom: 10px;
-}
-  
-.donutPrice {
-    font-size: 18px;
+    font-size: 1.4rem;
+    color: #7b1fa2; /* Purple for donut name */
     font-weight: bold;
-    color: #007bff;
+    margin-bottom: 8px;
 }
-  
+
+.donutDescription {
+    font-size: 1rem;
+    color: #6d4c41; /* Warm brown */
+    margin-bottom: 8px;
+}
+
+.donutPrice {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffb74d; /* Orange for price */
+    margin-top: 10px;
+}
+
 footer {
     margin-top: 40px;
     font-size: 0.9rem;
-    color: #adb5bd;
+    font-weight: bolder;
+    color: #000000;
 }
-  

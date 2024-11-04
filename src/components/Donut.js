@@ -9,6 +9,7 @@ function Donut ({name, description, price}){
             <div className={Styles.donutName}>{name}</div>
             <div className={Styles.donutDescription}>{description}</div>
             <div className={Styles.donutPrice}>${price}</div>
+            {/* <div className={Styles.donutImg}>${donutImg}</div> */}
         </div>
 
     );
